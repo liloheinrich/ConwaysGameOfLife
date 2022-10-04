@@ -4,7 +4,7 @@
 `define SIMULATION
 
 module test_adder_n;
-  parameter N = 3;
+  parameter N = 1;
 
   logic [N-1:0] a;
   logic [N-1:0] b; 
