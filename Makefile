@@ -39,6 +39,9 @@ test_eight_input_adder: tests/test_eight_input_adder.sv ${CONWAY_SRCS}
 test_comparator: tests/test_comparator.sv hdl/comparator.sv 
 	${IVERILOG} $^ -o test_comparator.bin && ${VVP} test_comparator.bin ${VVP_POST}
 
+test_equality_comparator: tests/test_equality_comparator.sv hdl/equality_comparator.sv 
+	${IVERILOG} $^ -o test_equality_comparator.bin && ${VVP} test_equality_comparator.bin ${VVP_POST}
+
 test_conway_cell: tests/test_conway_cell.sv ${CONWAY_SRCS}
 	${IVERILOG} $^ -o test_conway_cell.bin && ${VVP} test_conway_cell.bin ${VVP_POST}
 
