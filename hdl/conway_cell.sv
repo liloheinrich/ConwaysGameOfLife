@@ -38,6 +38,6 @@ end
 
 //always_ff @(posedge clk) begin
 //	state_q <= state_d;
-//end
+//end 
 
 endmodule

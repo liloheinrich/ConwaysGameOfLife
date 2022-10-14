@@ -14,7 +14,6 @@ input wire [N*N-1:0] cells;
 output logic [N-1:0] rows;
 output logic [N-1:0] cols;
 
-
 // You can check parameters with the $error macro within initial blocks.
 initial begin
   if ((N <= 0) || (N > 8)) begin

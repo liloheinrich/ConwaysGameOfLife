@@ -12,7 +12,7 @@ wire state_d, state_q;
 conway_cell UUT(
   .clk(clk), .rst(rst), .ena(ena),
   .neighbors(neighbors),
-  .state_0(1'b0), .state_d(state_d), .state_q(state_q)
+  .state_0(1'b0), .state_d(state_d), .state_q(state_q) 
 );
 
 initial begin
