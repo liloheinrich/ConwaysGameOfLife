@@ -7,7 +7,7 @@ VVP_POST=-fst
 VIVADO=vivado -mode batch -source
 
 
-CONWAY_SRCS=hdl/conway_cell.sv hdl/adder_1.sv hdl/adder_n.sv hdl/eight_input_adder.sv
+CONWAY_SRCS=hdl/conway_cell.sv hdl/adder_1.sv hdl/adder_n.sv hdl/eight_input_adder.sv hdl/equality_comparator.sv 
 DECODER_SRCS=hdl/decoder*.sv
 LED_ARRAY_SRCS=${DECODER_SRCS} hdl/led_array_driver.sv
 MAIN_SRCS=${CONWAY_SRCS} ${LED_ARRAY_SRCS} hdl/main.sv 
@@ -44,6 +44,9 @@ test_equality_comparator: tests/test_equality_comparator.sv hdl/equality_compara
 
 test_conway_cell: tests/test_conway_cell.sv ${CONWAY_SRCS}
 	${IVERILOG} $^ -o test_conway_cell.bin && ${VVP} test_conway_cell.bin ${VVP_POST}
+
+test_conway_cell_simple: tests/test_conway_cell_simple.sv ${CONWAY_SRCS}
+	${IVERILOG} $^ -o test_conway_cell_simple.bin && ${VVP} test_conway_cell_simple.bin ${VVP_POST}
 
 test_led_array_driver: tests/test_led_array_driver.sv tests/led_array_model.sv ${LED_ARRAY_SRCS}
 	${IVERILOG} $^ -o test_led_array_driver.bin && ${VVP} test_led_array_driver.bin ${VVP_POST}
