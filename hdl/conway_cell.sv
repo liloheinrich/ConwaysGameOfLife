@@ -38,7 +38,7 @@ always_ff @(posedge clk) begin : delay
 	// reset should have priority generally, and be able to reset the circuit whether ena = 1 or not. 
 	// but this is a design decision that is sort of up to us. whatever makes the tests pass.
 	// also we are not allowed to use if-else statements in this assignent, use ternary a?b:c instead.
-	state_q <= rst ? state_0 : (ena & state_d);
+	state_q <= rst ? state_0 : (ena ? state_d : state_q);
 end 
 
 endmodule
