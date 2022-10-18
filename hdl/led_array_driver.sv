@@ -31,7 +31,6 @@ initial begin
   end
 end
 
-
 logic row0;
 logic row1;
 logic row2;
@@ -42,9 +41,8 @@ logic row6;
 logic row7;
 
 always_comb begin
-//always_ff @(posedge) begin
-rows = {row7, row6, row5, row4, row3, row2, row1, row0};
-cols = x_decoded;
+  rows = {row7, row6, row5, row4, row3, row2, row1, row0};
+  cols = x_decoded;
 end
 
 
