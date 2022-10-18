@@ -3,7 +3,7 @@
 
 module led_array_driver(ena, x, cells, rows, cols);
 // Module I/O and parameters
-parameter N=5; // Size of Conway Cell Grid.
+parameter N=8; // Size of Conway Cell Grid.
 parameter ROWS=N;
 parameter COLS=N;
 
@@ -40,10 +40,13 @@ logic row1;
 logic row2;
 logic row3;
 logic row4;
+logic row5;
+logic row6;
+logic row7;
 
 always_comb begin
 //always_ff @(posedge) begin
-rows = {row4, row3, row2, row1, row0};
+rows = {row7, row6, row5, row4, row3, row2, row1, row0};
 cols = x_decoded;
 end
 
@@ -54,6 +57,9 @@ always_comb begin
   row2 = ~(|(x_decoded[N-1:0] & cells[3*N-1:2*N]));
   row3 = ~(|(x_decoded[N-1:0] & cells[4*N-1:3*N]));
   row4 = ~(|(x_decoded[N-1:0] & cells[5*N-1:4*N]));
+  row5 = ~(|(x_decoded[N-1:0] & cells[6*N-1:5*N]));
+  row6 = ~(|(x_decoded[N-1:0] & cells[7*N-1:6*N]));
+  row7 = ~(|(x_decoded[N-1:0] & cells[8*N-1:7*N]));
 
   //$display ("cells value = %8b", cells);
   //$display ("x value = %3b", x);
