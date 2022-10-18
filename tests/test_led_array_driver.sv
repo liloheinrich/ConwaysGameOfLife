@@ -5,7 +5,7 @@
 
 module test_led_array_driver;
 
-  parameter N = 3;
+  parameter N = 8;
 
   logic ena;
   logic [N*N-1:0] cells;

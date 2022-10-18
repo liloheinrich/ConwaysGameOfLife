@@ -29,9 +29,6 @@ initial begin
   if (ROWS < N) begin
     $error("ROWS/COLS must be >= than the size of the Conway Grid.");
   end
-
-  //cols = x_decoded[N-1:0];
-  //rows = {row4, row3, row2, row1, row0};
 end
 
 
