@@ -7,9 +7,9 @@ VVP_POST=-fst
 VIVADO=vivado -mode batch -source
 
 
-CONWAY_SRCS=hdl/conway_cell.sv hdl/adder_1.sv hdl/adder_n.sv hdl/eight_input_adder.sv hdl/equality_comparator.sv hdl/mux8.sv hdl/mux4.sv
+CONWAY_SRCS=hdl/conway_cell.sv hdl/adder_1.sv hdl/adder_n.sv hdl/eight_input_adder.sv hdl/equality_comparator.sv
 DECODER_SRCS=hdl/decoder*.sv
-LED_ARRAY_SRCS=${DECODER_SRCS} hdl/led_array_driver.sv hdl/mux8.sv hdl/mux4.sv
+LED_ARRAY_SRCS=${DECODER_SRCS} hdl/led_array_driver.sv
 MAIN_SRCS=${CONWAY_SRCS} ${LED_ARRAY_SRCS} hdl/main.sv 
 
 # Look up .PHONY rules for Makefiles
