@@ -29,31 +29,39 @@ initial begin
   if (ROWS < N) begin
     $error("ROWS/COLS must be >= than the size of the Conway Grid.");
   end
-
-  //cols = x_decoded[N-1:0];
-  //rows = {row4, row3, row2, row1, row0};
 end
 
 
-logic row0;
-logic row1;
-logic row2;
-logic row3;
-logic row4;
+// logic row0;
+// logic row1;
+// logic row2;
+// logic row3;
+// logic row4;
 
+/*
 always_comb begin
 //always_ff @(posedge) begin
 rows = {row4, row3, row2, row1, row0};
-cols = x_decoded;
 end
+*/
 
 
 always_comb begin
-  row0 = ~(|(x_decoded[N-1:0] & cells[1*N-1:0*N]));
-  row1 = ~(|(x_decoded[N-1:0] & cells[2*N-1:1*N]));
-  row2 = ~(|(x_decoded[N-1:0] & cells[3*N-1:2*N]));
-  row3 = ~(|(x_decoded[N-1:0] & cells[4*N-1:3*N]));
-  row4 = ~(|(x_decoded[N-1:0] & cells[5*N-1:4*N]));
+
+  
+  // row0 = ~(|(x_decoded[N-1:0] & cells[1*N-1:0*N]));
+  // row1 = ~(|(x_decoded[N-1:0] & cells[2*N-1:1*N]));
+  // row2 = ~(|(x_decoded[N-1:0] & cells[3*N-1:2*N]));
+  // row3 = ~(|(x_decoded[N-1:0] & cells[4*N-1:3*N]));
+  // row4 = ~(|(x_decoded[N-1:0] & cells[5*N-1:4*N]));
+  
+
+  genvar i;
+  generate
+    for (i = 0; i < N; i = i + 1) begin
+      rows[i] = ~(|(x_decoded[N-1:0] & cells[i*N-1:i*N]));
+    end
+  endgenerate 
 
   //$display ("cells value = %8b", cells);
   //$display ("x value = %3b", x);
