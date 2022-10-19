@@ -5,7 +5,7 @@
 
 module test_led_array_driver;
 
-  parameter N = 8;
+  parameter N = 3;
 
   logic ena;
   logic [N*N-1:0] cells;
@@ -35,6 +35,7 @@ module test_led_array_driver;
     better practice to use proper synchronous reset logic instead!
   */
   initial begin
+
     // Collect all internal variables for waveforms.
     $dumpfile("led_array_driver.fst");
     $dumpvars(0, UUT);
