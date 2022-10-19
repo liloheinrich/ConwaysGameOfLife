@@ -1,4 +1,7 @@
 # Conway's Game of Life
+
+To the grader: please see the schematics folder for documentation on the low-level modules implemented. Higher-level modules are commented as their form of documentation.
+
 In this lab you will implement a version of [Conway's Game of Life](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life).
 
 ![block diagram](docs/conway-bd-1.png)
