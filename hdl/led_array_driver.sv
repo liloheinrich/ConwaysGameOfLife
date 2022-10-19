@@ -14,6 +14,7 @@ input wire [N*N-1:0] cells;
 output logic [N-1:0] rows;
 output logic [N-1:0] cols;
 
+// this 3 to 8 decoder takes a 3 bit binary number x and decodes it into the 8 column inputs
 wire [N-1:0] x_decoded;
 decoder_3_to_8 decoder_3_to_8_inst(.ena(ena), .in(x), .out(x_decoded));
 
@@ -32,7 +33,12 @@ initial begin
   end
 end
 
-
+/* 
+calculate the value of each row (anode) as the value of the column
+value and-ed with the values of the cells in that row. If any of the
+resulting values are positive, at least one led needs to turn on so 
+that row needs to be set to Low or 0. Else, that row should be set to 1. 
+*/
 genvar i;
 generate
   for (i = 0; i < N; i = i + 1) begin
