@@ -12,6 +12,11 @@ logic in2_bar;
 logic ena1;
 logic ena0;
 
+/* similarly to the 2:4 decoder, the last layer of the 3:8 decoder is decoders one level lower.
+in[2] and ~in[2] act as the ena for the 2:4 decoders, and-ed with the overall ena.
+in[1] and in[0] are the inputs to both decoders.
+*/
+
 decoder_2_to_4 D1(
 				.ena(ena1), 
 				.in({in1, in0}), 
